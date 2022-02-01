@@ -1,0 +1,9 @@
+# Copyright holder
+EUMETSAT
+ 
+# List of development authors
+Ben Loveday (Innoflair UG)
+Hayley Evers-King (EUMETSAT)
+
+# Support
+For all queries on this software package, please contact ops@eumetsat.int
