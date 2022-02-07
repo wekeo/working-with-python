@@ -2,6 +2,7 @@
 EUMETSAT
  
 # List of development authors
+Julia Wagemann (MEEO)
 Ben Loveday (Innoflair UG)
 Hayley Evers-King (EUMETSAT)
 

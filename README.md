@@ -1,6 +1,6 @@
 # working-with-python
 
-This repository contains all tools and notebooks related to helping users to work with python. Likely to be deployed in EVERY repo, so **must** remain small as it will be deployed more than once.
+This repository contains all tools and notebooks related to helping users to work with python.
 
 ## License
  
@@ -10,6 +10,7 @@ All product names, logos, and brands are property of their respective owners. Al
 
 ## Authors
 
+* [**Julia Wagemann**](mailto://ops@eumetsat.int) - [EUMETSAT](http://www.eumetsat.int)
 * [**Ben Loveday**](mailto://ops@eumetsat.int) - [EUMETSAT](http://www.eumetsat.int)
 * [**Hayley Evers-King**](mailto://ops@eumetsat.int) - [EUMETSAT](http://www.eumetsat.int)
 
