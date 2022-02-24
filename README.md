@@ -6,7 +6,7 @@ This repository contains all tools and notebooks related to helping users to wor
  
 This code is licensed under an MIT license. See file LICENCE.txt for details on the usage and distribution terms. No dependencies are distributed as part of this package.
 
-All product names, logos, and brands are property of their respective owners. All company, product and service names used in this website are for identification purposes only
+All product names, logos, and brands are property of their respective owners. All company, product and service names used in this website are for identification purposes only.
 
 ## Authors
 
@@ -24,4 +24,6 @@ Anaconda Python distributions include Jupyter Notebook.
 
 ## Dependencies
 
-None
+|item|version|licence|package info|
+|---|---|---|---|
+|notebook|6.4.8|BSD-3|https://anaconda.org/conda-forge/notebook|
