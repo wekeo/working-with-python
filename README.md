@@ -4,7 +4,7 @@ This repository contains all tools and notebooks related to helping users to wor
 
 ## License
  
-This code is licensed under an MIT license. See file LICENCE.txt for details on the usage and distribution terms. No dependencies are distributed as part of this package.
+This code is licensed under an MIT license. See file LICENSE.txt for details on the usage and distribution terms. No dependencies are distributed as part of this package. Copyright EUMETSAT 2022.
 
 All product names, logos, and brands are property of their respective owners. All company, product and service names used in this website are for identification purposes only.
 
