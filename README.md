@@ -26,4 +26,5 @@ Anaconda Python distributions include Jupyter Notebook.
 
 |item|version|licence|package info|
 |---|---|---|---|
+|python|3.8.13|PSF|https://docs.python.org/3/license.html|
 |notebook|6.4.8|BSD-3|https://anaconda.org/conda-forge/notebook|
