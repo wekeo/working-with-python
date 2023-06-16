@@ -27,18 +27,30 @@ def eumdac_widget():
 
     def on_button_clicked1(b):
         with output:
-            out_string = '{{\n"consumer_key": "{box1}"\n"consumer_secret": "{box2}"\n}}'
-            out_string = out_string.format(box1 = box1.value, box2 = box2.value)
-            out_file = os.path.join(os.path.expanduser("~"), ".eumdac_credentials")
+            out_string1 = '{{\n"consumer_key": "{box1}"\n"consumer_secret": "{box2}"\n}}'
+            out_string1 = out_string1.format(box1 = box1.value, box2 = box2.value)
+            out_string2 = '{box1},{box2}'
+            out_string2 = out_string2.format(box1 = box1.value, box2 = box2.value)
+            out_file1 = os.path.join(os.path.expanduser("~"), ".eumdac_credentials")
+            out_file2 = os.path.join(os.path.expanduser("~"), ".eumdac/credentials")
 
             try:
-                os.remove(out_file)
+                os.remove(out_file1)
             except OSError:
                 pass
 
-            with open(out_file, "w") as f:
-                f.write(out_string)
-                print(f"{out_file} created")
+            with open(out_file1, "w") as f:
+                f.write(out_string1)
+                print(f"{out_file1} created")
+            
+            try:
+                os.remove(out_file2)
+            except OSError:
+                pass
+
+            with open(out_file2, "w") as f:
+                f.write(out_string2)
+                print(f"{out_file2} created")            
 
     button.on_click(on_button_clicked1)
     
