@@ -27,7 +27,7 @@ def eumdac_widget():
 
     def on_button_clicked1(b):
         with output:
-            out_string1 = '{{\n"consumer_key": "{box1}"\n"consumer_secret": "{box2}"\n}}'
+            out_string1 = '{{\n"consumer_key": "{box1}",\n"consumer_secret": "{box2}"\n}}'
             out_string1 = out_string1.format(box1 = box1.value, box2 = box2.value)
             out_string2 = '{box1},{box2}'
             out_string2 = out_string2.format(box1 = box1.value, box2 = box2.value)
