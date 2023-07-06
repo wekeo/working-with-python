@@ -3,13 +3,15 @@ name: working-with-python
 description: Small repository of common content on working with Python, to be deployed across EUMETSAT ocean training code-base as a git submodule
 copyright: 2023 EUMETSAT
 license_spdx: MIT
-date: 06-02-2023
+date: 01-07-2023
 home_url: https://gitlab.eumetsat.int/eumetlab/ocean/tools/working-with-python
  
 # Package IPR documentation
 license_text_file: LICENSE.txt
  
 # File(s) associated to this component
+about_resource: CHANGELOG
+about_resource: CONTRIBUTING.md
 about_resource: AUTHORS.txt
 about_resource: Intro_to_Python_and_Jupyter.ipynb
 about_resource: LICENSE.txt
