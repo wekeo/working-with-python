@@ -10,9 +10,9 @@ All product names, logos, and brands are property of their respective owners. Al
 
 ## Authors
 
-* [**Julia Wagemann**](mailto://ops@eumetsat.int) - [EUMETSAT](http://www.eumetsat.int)
 * [**Ben Loveday**](mailto://ops@eumetsat.int) - [EUMETSAT](http://www.eumetsat.int)
 * [**Hayley Evers-King**](mailto://ops@eumetsat.int) - [EUMETSAT](http://www.eumetsat.int)
+* [**Julia Wagemann**](mailto://ops@eumetsat.int) - [EUMETSAT](http://www.eumetsat.int)
 
 Please see the AUTHORS.txt file for more information.
 
@@ -27,4 +27,4 @@ Anaconda Python distributions include Jupyter Notebook.
 |item|version|licence|package info|
 |---|---|---|---|
 |python|3.8.13|PSF|https://docs.python.org/3/license.html|
-|notebook|6.4.8|BSD-3|https://anaconda.org/conda-forge/notebook|
+|jupyterlab|4.0.2|BSD-3|https://anaconda.org/conda-forge/jupyterlab|
