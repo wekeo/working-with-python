@@ -127,7 +127,7 @@ def cmems_widget():
 
     def on_button_clicked2(b):
         with output:
-            out_string = '{{\n"https://my.cmems-du.eu": ["{box1}":"{box2}"],\n"https://nrt.cmems-du.eu": ["{box1}", "{box2}"]\n}}'
+            out_string = '{{\n"https://my.cmems-du.eu": ["{box1}", "{box2}"],\n"https://nrt.cmems-du.eu": ["{box1}", "{box2}"]\n}}'
             out_string = out_string.format(box1 = box1.value, box2 = box2.value)
             out_file = os.path.join(os.path.expanduser("~"), ".cmems_opendap")
 
