@@ -35,8 +35,8 @@ def eumdac_widget():
             
             if not os.path.exists(os.path.join(os.path.expanduser("~"), ".eumdac")):
                 os.makedirs(os.path.join(os.path.expanduser("~"), ".eumdac"))
-            out_file2 = os.path.join(os.path.expanduser("~"), ".eumdac/credentials")
-            out_file3 = os.path.join(os.path.expanduser("~"), ".eumdac/credentials.txt")            
+            out_file2 = os.path.join(os.path.expanduser("~"), ".eumdac", "credentials")
+            out_file3 = os.path.join(os.path.expanduser("~"), ".eumdac", "credentials.txt")            
 
             try:
                 os.remove(out_file1)
