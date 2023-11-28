@@ -36,6 +36,7 @@ def eumdac_widget():
             if not os.path.exists(os.path.join(os.path.expanduser("~"), ".eumdac")):
                 os.makedirs(os.path.join(os.path.expanduser("~"), ".eumdac"))
             out_file2 = os.path.join(os.path.expanduser("~"), ".eumdac/credentials")
+            out_file3 = os.path.join(os.path.expanduser("~"), ".eumdac/credentials.txt")            
 
             try:
                 os.remove(out_file1)
@@ -54,6 +55,15 @@ def eumdac_widget():
             with open(out_file2, "w") as f:
                 f.write(out_string2)
                 print(f"{out_file2} created")            
+
+            try:
+                os.remove(out_file3)
+            except OSError:
+                pass
+
+            with open(out_file3, "w") as f:
+                f.write(out_string2)
+                print(f"{out_file3} created")   
 
     button.on_click(on_button_clicked_eumdac)
     
