@@ -4,7 +4,7 @@ This repository contains all tools and notebooks related to helping users to wor
 
 ## License
  
-This code is licensed under an MIT license. See file LICENSE.txt for details on the usage and distribution terms. No dependencies are distributed as part of this package. Copyright EUMETSAT 2023.
+This code is licensed under an MIT license. See file LICENSE.txt for details on the usage and distribution terms. No dependencies are distributed as part of this package. Copyright EUMETSAT 2024.
 
 All product names, logos, and brands are property of their respective owners. All company, product and service names used in this website are for identification purposes only.
 
@@ -26,5 +26,7 @@ Anaconda Python distributions include Jupyter Notebook.
 
 |item|version|licence|package info|
 |---|---|---|---|
-|python|3.8.13|PSF|https://docs.python.org/3/license.html|
-|jupyterlab|4.0.2|BSD-3|https://anaconda.org/conda-forge/jupyterlab|
+|python|3.12.2|PSF|https://docs.python.org/3/license.html|
+|jupyterlab|4.1.2|BSD-3|https://anaconda.org/conda-forge/jupyterlab|
+|ipywidgets|8.1.2|BSD-3|https://anaconda.org/conda-forge/ipywidgets|
+

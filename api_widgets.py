@@ -27,16 +27,13 @@ def eumdac_widget():
 
     def on_button_clicked_eumdac(b):
         with output:
-            out_string1 = '{{\n"consumer_key": "{box1}",\n"consumer_secret": "{box2}"\n}}'
-            out_string1 = out_string1.format(box1 = box1.value, box2 = box2.value)
-            out_string2 = '{box1},{box2}'
-            out_string2 = out_string2.format(box1 = box1.value, box2 = box2.value)
-            out_file1 = os.path.join(os.path.expanduser("~"), ".eumdac_credentials")
+            out_string = '{consumer_key},{consumer_secret}'
+            out_string = out_string.format(consumer_key = box1.value, consumer_secret = box2.value)
             
             if not os.path.exists(os.path.join(os.path.expanduser("~"), ".eumdac")):
                 os.makedirs(os.path.join(os.path.expanduser("~"), ".eumdac"))
-            out_file2 = os.path.join(os.path.expanduser("~"), ".eumdac", "credentials")
-            out_file3 = os.path.join(os.path.expanduser("~"), ".eumdac", "credentials.txt")            
+            out_file1 = os.path.join(os.path.expanduser("~"), ".eumdac", "credentials")
+            out_file2 = os.path.join(os.path.expanduser("~"), ".eumdac", "credentials.txt")            
 
             try:
                 os.remove(out_file1)
@@ -44,7 +41,7 @@ def eumdac_widget():
                 pass
 
             with open(out_file1, "w") as f:
-                f.write(out_string1)
+                f.write(out_string)
                 print(f"{out_file1} created")
             
             try:
@@ -53,17 +50,8 @@ def eumdac_widget():
                 pass
 
             with open(out_file2, "w") as f:
-                f.write(out_string2)
-                print(f"{out_file2} created")            
-
-            try:
-                os.remove(out_file3)
-            except OSError:
-                pass
-
-            with open(out_file3, "w") as f:
-                f.write(out_string2)
-                print(f"{out_file3} created")   
+                f.write(out_string)
+                print(f"{out_file2} created") 
 
     button.on_click(on_button_clicked_eumdac)
     

@@ -1,11 +1,11 @@
 # Copyright holder
-copyright: 2023 EUMETSAT
+copyright: 2024 EUMETSAT
 license: LICENSE.txt
  
 # List of development authors
-Julia Wagemann (MEEO SRL)
 Ben Loveday (Innoflair UG / EUMETSAT)
 Hayley Evers-King (EUMETSAT)
+Julia Wagemann (MEEO S.r.l / EUMETSAT)
 
 # Support
 For all queries on this software package, please contact ops@eumetsat.int
