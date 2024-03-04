@@ -162,7 +162,7 @@ def cds_ads_widget():
 
     box1 = widgets.Text(
         value=None,
-        placeholder='Enter your CDS key',
+        placeholder='Enter your CDS UID',
         disabled=False,
         layout=layout,
         display='flex'
@@ -170,14 +170,30 @@ def cds_ads_widget():
 
     box2 = widgets.Text(
         value=None,
-        placeholder='Enter your ADS key',
+        placeholder='Enter your CDS key',
         disabled=False,
         layout=layout,
         display='flex'
     )
 
+    box3 = widgets.Text(
+        value=None,
+        placeholder='Enter your ADS UID',
+        disabled=False,
+        layout=layout,
+        display='flex'
+    )
+
+    box4 = widgets.Text(
+        value=None,
+        placeholder='Enter your ADS key',
+        disabled=False,
+        layout=layout,
+        display='flex'
+    )
+    
     button = widgets.Button(
-        description='Create CDS/ADS file',
+        description='Create CDS/ADS files',
         disabled=False,
         button_style='info',
         tooltip='Click me',
@@ -185,14 +201,22 @@ def cds_ads_widget():
     )
 
     output = widgets.Output()
-    display(widgets.VBox([box1, box2, button]), output)
+    display(widgets.VBox([widgets.HBox([box1, box2]), widgets.HBox([box3, box4]), button]), output)
 
     def on_button_clicked_cds_ads(b):
         with output:
-            out_string = '[cds]\ncds_url: https://cds.climate.copernicus.eu/api/v2\ncds_key: {box1}\n\n[ads]\nads_url: https://ads.atmosphere.copernicus.eu/api/v2\nads_key: {box2}'
-            out_string = out_string.format(box1 = box1.value, box2 = box2.value)
+            out_string = '[cds]\ncds_url: https://cds.climate.copernicus.eu/api/v2\ncds_key: {box2}\n\n[ads]\nads_url: https://ads.atmosphere.copernicus.eu/api/v2\nads_key: {box4}'
+            out_string = out_string.format(box2 = box2.value, box4 = box4.value)
             out_file = os.path.join(os.path.expanduser("~"), ".ecmwf_api_config")
 
+            out_string2 = 'url: https://cds.climate.copernicus.eu/api/v2\nkey: {box1}:{box2}'
+            out_string2 = out_string2.format(box1 = box1.value, box2 = box2.value)
+            out_file2 = os.path.join(os.path.expanduser("~"), ".cdsapi")
+
+            out_string3 = 'url: https://ads.atmosphere.copernicus.eu/api/v2\nkey: {box3}:{box4}'
+            out_string3 = out_string3.format(box3 = box3.value, box4 = box4.value)
+            out_file3 = os.path.join(os.path.expanduser("~"), ".adsapi")
+            
             try:
                 os.remove(out_file)
             except OSError:
@@ -201,5 +225,23 @@ def cds_ads_widget():
             with open(out_file, "w") as f:
                 f.write(out_string)
                 print(f"{out_file} created")
+
+            try:
+                os.remove(out_file2)
+            except OSError:
+                pass
+
+            with open(out_file2, "w") as f:
+                f.write(out_string2)
+                print(f"{out_file2} created")
+
+            try:
+                os.remove(out_file3)
+            except OSError:
+                pass
+
+            with open(out_file3, "w") as f:
+                f.write(out_string3)
+                print(f"{out_file3} created")
 
     button.on_click(on_button_clicked_cds_ads)
