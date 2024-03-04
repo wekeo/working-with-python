@@ -29,11 +29,15 @@ def eumdac_widget():
         with output:
             out_string = '{consumer_key},{consumer_secret}'
             out_string = out_string.format(consumer_key = box1.value, consumer_secret = box2.value)
+
+            out_string2 = '{{"consumer_key": "{consumer_key}", "consumer_secret": "{consumer_secret}"}}'
+            out_string2 = out_string2.format(consumer_key = box1.value, consumer_secret = box2.value)
             
             if not os.path.exists(os.path.join(os.path.expanduser("~"), ".eumdac")):
                 os.makedirs(os.path.join(os.path.expanduser("~"), ".eumdac"))
             out_file1 = os.path.join(os.path.expanduser("~"), ".eumdac", "credentials")
-            out_file2 = os.path.join(os.path.expanduser("~"), ".eumdac", "credentials.txt")            
+            out_file2 = os.path.join(os.path.expanduser("~"), ".eumdac", "credentials.txt")
+            out_file3 = os.path.join(os.path.expanduser("~"), ".eumdac_credentials.json")
 
             try:
                 os.remove(out_file1)
@@ -53,6 +57,15 @@ def eumdac_widget():
                 f.write(out_string)
                 print(f"{out_file2} created") 
 
+            try:
+                os.remove(out_file3)
+            except OSError:
+                pass
+
+            with open(out_file3, "w") as f:
+                f.write(out_string2)
+                print(f"{out_file3} created") 
+                
     button.on_click(on_button_clicked_eumdac)
     
 def hda_widget():
@@ -84,7 +97,7 @@ def hda_widget():
 
     def on_button_clicked_hda(b):
         with output:
-            out_string = 'url: https://wekeo-broker.apps.mercator.dpi.wekeo.eu/databroker\nuser: {box1}\npassword: {box2}'
+            out_string = 'url: https://wekeo-broker.prod.wekeo2.eu/databroker\nuser: {box1}\npassword: {box2}'
             out_string = out_string.format(box1 = box1.value, box2 = box2.value)
             out_file = os.path.join(os.path.expanduser("~"), ".hdarc")
 
