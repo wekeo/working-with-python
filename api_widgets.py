@@ -15,11 +15,12 @@ def eumdac_widget():
         disabled=False
     )
     button = widgets.Button(
-        description='Create eumdac file',
+        description='Create eumdac credentials file',
         disabled=False,
         button_style='info',
         tooltip='Click me',
-        icon='file'
+        icon='file',
+        layout = widgets.Layout(width = "300px")
     )
 
     output = widgets.Output()
@@ -58,7 +59,51 @@ def eumdac_widget():
                 print(f"{out_file_thomas} created")
                 
     button.on_click(on_button_clicked_eumdac)
-    
+
+def earthdata_widget():
+    layout = widgets.Layout(width='100', height='40px')
+
+    box1 = widgets.Password(
+        value='',
+        placeholder='Enter your username',
+        disabled=False
+    )
+    box2 = widgets.Password(
+        value='',
+        placeholder='Enter your password',
+        disabled=False
+    )
+    button = widgets.Button(
+        description='Create Earthdata credentials file',
+        disabled=False,
+        button_style='info',
+        tooltip='Click me',
+        icon='file',
+        layout = widgets.Layout(width = "300px")
+    )
+
+    output = widgets.Output()
+    display(widgets.VBox([box1, box2, button]), output)
+
+    def on_button_clicked_earthdata(b):
+        with output:
+
+            out_string_earthdata = '{{"username": "{username}", "password": "{password}"}}'
+            out_string_earthdata = out_string_earthdata.format(username = box1.value, password = box2.value)
+
+            out_file_earthdata = os.path.join(os.path.expanduser("~"), ".obpg_credentials.json")
+
+            try:
+                os.remove(out_file_earthdata)
+            except OSError:
+                pass
+
+            with open(out_file_earthdata, "w") as f:
+                f.write(out_string_earthdata)
+                print(f"{out_file_earthdata} created")
+
+    button.on_click(on_button_clicked_earthdata)
+
 def hda_widget():
 
     layout = widgets.Layout(width='100', height='40px')
@@ -76,11 +121,12 @@ def hda_widget():
         disabled=False
     )  
     button = widgets.Button(
-        description='Create HDA file',
+        description='Create HDA credentials file',
         disabled=False,
         button_style='info',
         tooltip='Click me',
-        icon='file'
+        icon='file',
+        layout = widgets.Layout(width = "300px")
     )
 
     output = widgets.Output()
@@ -120,11 +166,12 @@ def cmems_widget():
         disabled=False
     )  
     button = widgets.Button(
-        description='Create OpenDAP file',
+        description='Create CMEMS API crednentials file',
         disabled=False,
         button_style='info',
         tooltip='Click me',
-        icon='file'
+        icon='file',
+        layout = widgets.Layout(width = "300px")
     )
 
     output = widgets.Output()
@@ -153,7 +200,7 @@ def cds_ads_widget():
 
     box1 = widgets.Text(
         value=None,
-        placeholder='Enter your CDS UID',
+        placeholder='Enter your CDS API key',
         disabled=False,
         layout=layout,
         display='flex'
@@ -161,52 +208,29 @@ def cds_ads_widget():
 
     box2 = widgets.Text(
         value=None,
-        placeholder='Enter your CDS key',
-        disabled=False,
-        layout=layout,
-        display='flex'
-    )
-
-    box3 = widgets.Text(
-        value=None,
-        placeholder='Enter your ADS UID',
-        disabled=False,
-        layout=layout,
-        display='flex'
-    )
-
-    box4 = widgets.Text(
-        value=None,
-        placeholder='Enter your ADS key',
+        placeholder='Enter your ADS API key',
         disabled=False,
         layout=layout,
         display='flex'
     )
     
     button = widgets.Button(
-        description='Create CDS/ADS files',
+        description='Create CDS/ADS credentials files',
         disabled=False,
         button_style='info',
         tooltip='Click me',
-        icon='file'
+        icon='file',
+        layout = widgets.Layout(width = "300px")
     )
 
     output = widgets.Output()
-    display(widgets.VBox([widgets.HBox([box1, box2]), widgets.HBox([box3, box4]), button]), output)
+    display(widgets.VBox([box1, box2, button]), output)
 
     def on_button_clicked_cds_ads(b):
         with output:
-            out_string = '[cds]\ncds_url: https://cds.climate.copernicus.eu/api/v2\ncds_key: {box2}\n\n[ads]\nads_url: https://ads.atmosphere.copernicus.eu/api/v2\nads_key: {box4}'
-            out_string = out_string.format(box2 = box2.value, box4 = box4.value)
-            out_file = os.path.join(os.path.expanduser("~"), ".ecmwf_api_config")
-
-            out_string2 = 'url: https://cds.climate.copernicus.eu/api/v2\nkey: {box1}:{box2}'
-            out_string2 = out_string2.format(box1 = box1.value, box2 = box2.value)
-            out_file2 = os.path.join(os.path.expanduser("~"), ".cdsapi")
-
-            out_string3 = 'url: https://ads.atmosphere.copernicus.eu/api/v2\nkey: {box3}:{box4}'
-            out_string3 = out_string3.format(box3 = box3.value, box4 = box4.value)
-            out_file3 = os.path.join(os.path.expanduser("~"), ".adsapi")
+            out_string = '[cds]\ncds_url: https://cds.climate.copernicus.eu/api/v2\ncds_key: {box1}\n\n[ads]\nads_url: https://ads.atmosphere.copernicus.eu/api/v2\nads_key: {box2}'
+            out_string = out_string.format(box1 = box1.value, box2 = box2.value)
+            out_file = os.path.join(os.path.expanduser("~"), ".ecmwf_api_config.txt")
             
             try:
                 os.remove(out_file)
@@ -216,23 +240,5 @@ def cds_ads_widget():
             with open(out_file, "w") as f:
                 f.write(out_string)
                 print(f"{out_file} created")
-
-            try:
-                os.remove(out_file2)
-            except OSError:
-                pass
-
-            with open(out_file2, "w") as f:
-                f.write(out_string2)
-                print(f"{out_file2} created")
-
-            try:
-                os.remove(out_file3)
-            except OSError:
-                pass
-
-            with open(out_file3, "w") as f:
-                f.write(out_string3)
-                print(f"{out_file3} created")
 
     button.on_click(on_button_clicked_cds_ads)
