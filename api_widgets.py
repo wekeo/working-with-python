@@ -71,7 +71,7 @@ def hda_widget():
 
     def on_button_clicked2(b):
         with output:
-            out_string = 'url: https://wekeo-broker.apps.mercator.dpi.wekeo.eu/databroker\nuser: {box1}\npassword: {box2}'
+            out_string = 'user:{box1}\npassword:{box2}'
             out_string = out_string.format(box1 = box1.value, box2 = box2.value)
             out_file = os.path.join(os.path.expanduser("~"), ".hdarc")
 
