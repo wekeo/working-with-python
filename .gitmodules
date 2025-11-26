@@ -1,0 +1,5 @@
+[submodule "frameworks"]
+	path = frameworks
+	url = https://github.com/wekeo/frameworks.git
+	shallow = true
+	branch = main
